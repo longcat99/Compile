@@ -16,9 +16,12 @@ sed -i "/uci commit luci/i\uci set luci.main.mediaurlbase=/luci-static/argon" $Z
 
 sed -i "/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-123'" $ZZZ       # 修改主机名称为OpenWrt-123
 
+sed -i "s/OpenWrt /281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ        # 增加自己个性名称281677160
+
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ                                                    # 设置密码为空
 
 #sed -i 's/PATCHVER:=5.4/PATCHVER:=4.19/g' target/linux/x86/Makefile                      # 修改内核版本为4.19
+
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 sed -i 's/"BaiduPCS Web"/"百度网盘"/g' package/lean/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua

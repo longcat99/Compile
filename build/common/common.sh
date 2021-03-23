@@ -100,7 +100,6 @@ sed -i 's/DEFAULT_PACKAGES +=/DEFAULT_PACKAGES += luci-app-passwall/g' target/li
 Diy_immortalwrt() {
 DIY_GET_COMMON_SH
 rm -rf package/lienol/luci-app-timecontrol
-rm -rf package/ctcgfw/{luci-app-argon-config,luci-theme-argonv3}
 rm -rf package/lean/luci-theme-argon
 git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
 }

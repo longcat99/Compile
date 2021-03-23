@@ -1,21 +1,25 @@
 #!/bin/bash
+ZZZ="package/default-settings/files/zzz-default-settings"
 # Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
 #
 
-# 修改openwrt登陆地址,把下面的192.168.2.2修改成你想要的就可以了
-sed -i "/exit 0/i\uci set network.lan.ipaddr='192.168.2.2'" package/default-settings/files/zzz-default-settings
+sed -i "/uci commit fstab/a\uci commit network" $ZZZ
+sed -i "/uci commit network/i\uci set network.lan.ipaddr='192.168.2.2'" $ZZZ              # IPv4 地址(openwrt后台地址)
+sed -i "/uci commit network/i\uci set network.lan.netmask='255.255.255.0'" $ZZZ           # IPv4 子网掩码
+sed -i "/uci commit network/i\uci set network.lan.gateway='192.168.2.1'" $ZZZ             # IPv4 网关
+sed -i "/uci commit network/i\uci set network.lan.broadcast='192.168.2.255'" $ZZZ         # IPv4 广播
+sed -i "/uci commit network/i\uci set network.lan.dns='223.5.5.5 114.114.114.114'" $ZZZ   # DNS(多个DNS要用空格分开)
+sed -i "/uci commit network/i\uci set network.lan.delegate='0'" $ZZZ                      # 去掉LAN口使用内置的 IPv6 管理
 
-# 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能使用中文）
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-123'' package/default-settings/files/zzz-default-settings
+sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile   # 强制选择argon为默认主题选项
+sed -i "/uci commit luci/i\uci set luci.main.mediaurlbase=/luci-static/argon" $ZZZ        # 选择argon为默认主题
 
-# 内核显示增加自己个性名称（281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ 这些为后期增加）
-sed -i "s/OpenWrt /281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/default-settings/files/zzz-default-settings
+sed -i "/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-123'" $ZZZ       # 修改主机名称为OpenWrt-123
 
-# 修改 argon 为默认主题,可根据你喜欢的修改成其他的（不选择那些会自动改变为默认主题的主题才有效果）
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+sed -i "s/OpenWrt /281677160 build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" $ZZZ        # 增加自己个性名称281677160
 
-# 修改内核版本为4.19
-#sed -i 's/KERNEL_PATCHVER:=4.14/KERNEL_PATCHVER:=4.19/g' target/linux/x86/Makefile
+#sed -i 's/PATCHVER:=4.14/PATCHVER:=4.19/g' target/linux/x86/Makefile                     # 修改内核版本为4.19
+
 
 # 修改插件名字（修改名字后不知道会不会对插件功能有影响，自己多测试）
 sed -i 's/"BaiduPCS Web"/"百度网盘"/g' package/lean/luci-app-baidupcs-web/luasrc/controller/baidupcs-web.lua
