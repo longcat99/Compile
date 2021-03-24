@@ -11,7 +11,7 @@ LIZZZ="package/default-settings/files/zzz-default-settings"
 # 全脚本源码通用diy.sh文件
 Diy_all() {
 DIY_GET_COMMON_SH
-git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/danshui
+git clone -b $REPO_BRANCH --single-branch https://github.com/281677160/openwrt-package package/longcat
 mv "${PATH1}"/AutoBuild_Tools.sh package/base-files/files/bin
 chmod +x package/base-files/files/bin/AutoBuild_Tools.sh
 if [[ ${REGULAR_UPDATE} == "true" ]]; then
@@ -24,8 +24,8 @@ fi
 # 全脚本源码通用diy2.sh文件
 Diy_all2() {
 DIY_GET_COMMON_SH
-if [ -n "$(ls -A "${Home}/package/danshui/ddnsto" 2>/dev/null)" ]; then
-mv package/danshui/ddnsto package/network/services
+if [ -n "$(ls -A "${Home}/package/longcat/ddnsto" 2>/dev/null)" ]; then
+mv package/longcat/ddnsto package/network/services
 fi
 if [[ `grep -c "# CONFIG_PACKAGE_ddnsto is not set" "${PATH1}/${CONFIG_FILE}"` -eq '0' ]]; then
 sed -i '/CONFIG_PACKAGE_ddnsto/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
@@ -47,12 +47,12 @@ sed -i '/IMAGES_GZIP/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
 echo -e "\nCONFIG_TARGET_IMAGES_GZIP=y" >> "${PATH1}/${CONFIG_FILE}"
 fi
 
-git clone https://github.com/fw876/helloworld package/danshui/luci-app-ssr-plus
-git clone https://github.com/xiaorouji/openwrt-passwall package/danshui/luci-app-passwall
-git clone https://github.com/jerrykuku/luci-app-vssr package/danshui/luci-app-vssr
-git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-openclash
-git clone https://github.com/frainzy1477/luci-app-clash package/danshui/luci-app-clash
-git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
+git clone https://github.com/fw876/helloworld package/longcat/luci-app-ssr-plus
+git clone https://github.com/xiaorouji/openwrt-passwall package/longcat/luci-app-passwall
+git clone https://github.com/jerrykuku/luci-app-vssr package/longcat/luci-app-vssr
+git clone https://github.com/vernesong/OpenClash package/longcat/luci-app-openclash
+git clone https://github.com/frainzy1477/luci-app-clash package/longcat/luci-app-clash
+git clone https://github.com/garypang13/luci-app-bypass package/longcat/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
@@ -73,12 +73,12 @@ Diy_lienol() {
 DIY_GET_COMMON_SH
 rm -rf package/diy/luci-app-adguardhome
 rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
-git clone https://github.com/fw876/helloworld package/danshui/luci-app-ssr-plus
-git clone https://github.com/xiaorouji/openwrt-passwall package/danshui/luci-app-passwall
-git clone https://github.com/jerrykuku/luci-app-vssr package/danshui/luci-app-vssr
-git clone https://github.com/vernesong/OpenClash package/danshui/luci-app-openclash
-git clone https://github.com/frainzy1477/luci-app-clash package/danshui/luci-app-clash
-git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
+git clone https://github.com/fw876/helloworld package/longcat/luci-app-ssr-plus
+git clone https://github.com/xiaorouji/openwrt-passwall package/longcat/luci-app-passwall
+git clone https://github.com/jerrykuku/luci-app-vssr package/longcat/luci-app-vssr
+git clone https://github.com/vernesong/OpenClash package/longcat/luci-app-openclash
+git clone https://github.com/frainzy1477/luci-app-clash package/longcat/luci-app-clash
+git clone https://github.com/garypang13/luci-app-bypass package/longcat/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
@@ -101,7 +101,7 @@ Diy_immortalwrt() {
 DIY_GET_COMMON_SH
 rm -rf package/lienol/luci-app-timecontrol
 rm -rf package/lean/luci-theme-argon
-git clone https://github.com/garypang13/luci-app-bypass package/danshui/luci-app-bypass
+git clone https://github.com/garypang13/luci-app-bypass package/longcat/luci-app-bypass
 }
 
 ################################################################################################################
