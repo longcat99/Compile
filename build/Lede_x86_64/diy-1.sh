@@ -7,3 +7,29 @@
 # 想要什么插件就单独的拉取什么插件就好，或者告诉我，我把插件放我的插件包就行了
 # 软件包地址：https://github.com/281677160/openwrt-package
 # 拉取插件请看《各种命令的简单介绍》第4条、第5条说明,不管大神还是新手请认真的看看,再次强调请不要一下子就拉取别人一堆插件的插件包,容易造成编译错误的
+cd package
+mkdir openwrt-packages
+cd openwrt-packages
+git clone https://github.com/longcat99/long.git
+git clone https://github.com/xiaorouji/openwrt-passwall.git
+# git clone https://github.com/longcat99/helloworld.git
+git clone https://github.com/fw876/helloworld.git
+# git clone https://github.com/longcat99/OpenClash.git
+git clone https://github.com/vernesong/OpenClash.git
+# git clone https://github.com/frainzy1477/luci-app-clash.git
+git clone https://github.com/destan19/OpenAppFilter.git
+git clone https://github.com/jerrykuku/luci-app-ttnode.git
+git clone https://github.com/linkease/ddnsto-openwrt.git
+# git clone https://github.com/jerrykuku/luci-app-vssr.git
+git clone https://github.com/lisaac/luci-app-dockerman.git
+git clone https://github.com/lisaac/luci-lib-docker.git
+git clone https://github.com/longcat99/luci-app-dnsfilter.git
+git clone https://github.com/garypang13/luci-app-bypass.git
+git clone --depth 1 https://github.com/garypang13/smartdns-le
+# git clone https://github.com/longcat99/luci-app-bypass.git
+git clone https://github.com/kuoruan/luci-app-kcptun.git
+git clone https://github.com/project-lede/luci-app-godproxy.git
+svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
+git clone https://github.com/riverscn/openwrt-iptvhelper.git && mv openwrt-iptvhelper/luci-app-iptvhelper/po/zh_Hans openwrt-iptvhelper/luci-app-iptvhelper/po/zh-cn
+svn co https://github.com/Lienol/openwrt/trunk/package/network/fullconenat && rm -f fullconenat/patches/000-printk.patch        
+git clone --depth 1 -b LUCI-LUA-UCITRACK https://github.com/CCnut/feed-netkeeper && mv -n feed-netkeeper/* ./ ; rm -Rf feed-netkeeper
