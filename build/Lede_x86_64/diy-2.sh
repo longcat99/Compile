@@ -68,5 +68,8 @@ find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-ttnode/luasrc/controller/t
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 # 修改bypass支持lean源码重命名shadowsocksr-libev-ssr-server
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+chmod +x scripts/*.sh
+./scripts/preset-clash-core.sh amd64
+./scripts/preset-terminal-tools.sh
 
 
