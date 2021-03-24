@@ -19,7 +19,7 @@ on:
 #    - cron: 0 8 */5 * *
 
 env:
-  LEDE: https://github.com/coolsnowwolf/lede
+  LEDE: https://github.com/longcat99/lede
   LIENOL: https://github.com/Lienol/openwrt
   PROJECT: https://github.com/immortalwrt/immortalwrt
   GITURL: https://github.com/${{github.repository}}
