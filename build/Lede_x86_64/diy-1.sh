@@ -11,22 +11,14 @@ cd package
 mkdir openwrt-packages
 cd openwrt-packages
 git clone https://github.com/longcat99/long.git
-git clone https://github.com/xiaorouji/openwrt-passwall.git
-# git clone https://github.com/longcat99/helloworld.git
-git clone https://github.com/fw876/helloworld.git
-# git clone https://github.com/longcat99/OpenClash.git
-git clone https://github.com/vernesong/OpenClash.git
-# git clone https://github.com/frainzy1477/luci-app-clash.git
+git clone https://github.com/frainzy1477/luci-app-clash.git
 git clone https://github.com/destan19/OpenAppFilter.git
 git clone https://github.com/jerrykuku/luci-app-ttnode.git
 git clone https://github.com/linkease/ddnsto-openwrt.git
-# git clone https://github.com/jerrykuku/luci-app-vssr.git
 git clone https://github.com/lisaac/luci-app-dockerman.git
 git clone https://github.com/lisaac/luci-lib-docker.git
 git clone https://github.com/longcat99/luci-app-dnsfilter.git
-git clone https://github.com/garypang13/luci-app-bypass.git
 git clone --depth 1 https://github.com/garypang13/smartdns-le
-# git clone https://github.com/longcat99/luci-app-bypass.git
 git clone https://github.com/kuoruan/luci-app-kcptun.git
 git clone https://github.com/project-lede/luci-app-godproxy.git
 svn co https://github.com/garypang13/openwrt-packages/trunk/lua-maxminddb
