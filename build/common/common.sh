@@ -22,8 +22,8 @@ fi
 }
 
 # 全脚本源码通用diy2.sh文件
-# Diy_all2() {
-# DIY_GET_COMMON_SH
+Diy_all2() {
+DIY_GET_COMMON_SH
 # if [ -n "$(ls -A "${Home}/package/longcat/ddnsto" 2>/dev/null)" ]; then
 # mv package/longcat/ddnsto package/network/services
 # fi
@@ -31,8 +31,7 @@ fi
 # sed -i '/CONFIG_PACKAGE_ddnsto/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
 # echo -e "\nCONFIG_PACKAGE_ddnsto=y" >> "${PATH1}/${CONFIG_FILE}"
 # fi
-
-# }
+}
 
 
 ################################################################################################################
