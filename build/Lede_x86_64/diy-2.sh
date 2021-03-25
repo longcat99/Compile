@@ -53,7 +53,7 @@ find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/view/ddns/syst
 # 修改bypass排序
 find package/*/ feeds/*/ -maxdepth 4 -path "*luci-app-bypass/luasrc/controller/bypass.lua" | xargs -i sed -i 's/\"Bypass\")\,2/\"Bypass\")\,0/g' {}
 # 修改DNSFilter排序
-# find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-dnsfilter/luasrc/controller/dnsfilter.lua" | xargs -i sed -i 's/\"DNSFilter\")\,0/\"DNSFilter\")\,3/g' {}
+find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-dnsfilter/luasrc/controller/dnsfilter.lua" | xargs -i sed -i 's/\"DNSFilter\")\,0/\"DNSFilter\")\,3/g' {}
 # 修改openclash排序
 find package/*/ feeds/*/ -maxdepth 6 -path "*OpenClash/luci-app-openclash/luasrc/controller/openclash.lua" | xargs -i sed -i 's/\"OpenClash\")\, 50/\"OpenClash\")\, 1/g' {}
 # 修改ShadowSocksR Plus+排序
