@@ -54,6 +54,17 @@ git clone https://github.com/frainzy1477/luci-app-clash package/longcat/luci-app
 git clone https://github.com/garypang13/luci-app-bypass package/longcat/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
+chmod +x scripts/*.sh
+./scripts/preset-clash-core.sh amd64
+./scripts/preset-terminal-tools.sh
+}
+################################################################################################################
+# LEDE源码通用diy2.sh文件
+Diy_lede2() {
+DIY_GET_COMMON_SH
+cp -Rf "${Home}"/build/common/LEDE/files "${Home}"
+cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
+sed -i '/exit 0/i\echo "*/3 * * * * chmod +x /etc/webweb.sh && source /etc/webweb.sh" >> /etc/crontabs/root' ${TYZZZ}
 # 修改luci/luci-app-ddns排序
 find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-ddns/luasrc/controller/ddns.lua" | xargs -i sed -i 's/\"Dynamic DNS\")\, 59/\"Dynamic DNS\")\, 0/g' {}
 # 修改luci-app-ddns导航菜单位置
@@ -83,17 +94,6 @@ find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ttnode/luasrc/controller/t
 find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
 # 修改bypass支持lean源码重命名shadowsocksr-libev-ssr-server
 find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-chmod +x scripts/*.sh
-./scripts/preset-clash-core.sh amd64
-./scripts/preset-terminal-tools.sh
-}
-################################################################################################################
-# LEDE源码通用diy2.sh文件
-Diy_lede2() {
-DIY_GET_COMMON_SH
-cp -Rf "${Home}"/build/common/LEDE/files "${Home}"
-cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
-sed -i '/exit 0/i\echo "*/3 * * * * chmod +x /etc/webweb.sh && source /etc/webweb.sh" >> /etc/crontabs/root' ${TYZZZ}
 }
 
 
