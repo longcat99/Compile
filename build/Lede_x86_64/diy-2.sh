@@ -39,37 +39,7 @@ sed -i 's/"网络存储"/"存储"/g' package/lean/luci-app-usb-printer/po/zh-cn/
 sed -i 's/"Web 管理"/"Web"/g' package/lean/luci-app-webadmin/po/zh-cn/webadmin.po
 sed -i 's/"管理权"/"改密码"/g' feeds/luci/modules/luci-base/po/zh-cn/base.po
 sed -i 's/"带宽监控"/"监视"/g' feeds/luci/applications/luci-app-nlbwmon/po/zh-cn/nlbwmon.po
-# 修改luci/luci-app-ddns排序
-find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-ddns/luasrc/controller/ddns.lua" | xargs -i sed -i 's/\"Dynamic DNS\")\, 59/\"Dynamic DNS\")\, 0/g' {}
-# 修改luci-app-ddns导航菜单位置
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/controller/ddns.lua" | xargs -i sed -i 's/\"services\"/\"ddns\"/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/model/cbi/ddns/detail.lua" | xargs -i sed -i 's/\"services\"/\"ddns\"/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/model/cbi/ddns/global.lua" | xargs -i sed -i 's/\"services\"/\"ddns\"/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/model/cbi/ddns/hints.lua" | xargs -i sed -i 's/\"services\"/\"ddns\"/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/model/cbi/ddns/overview.lua" | xargs -i sed -i 's/\"services\"/\"ddns\"/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/view/ddns/detail_logview.htm" | xargs -i sed -i 's/services/ddns/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/view/ddns/overview_status.htm" | xargs -i sed -i 's/services/ddns/g' {}
-find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ddns/luasrc/view/ddns/system_status.htm" | xargs -i sed -i 's/services/ddns/g' {}
-# 修改bypass排序
-find package/*/ feeds/*/ -maxdepth 4 -path "*luci-app-bypass/luasrc/controller/bypass.lua" | xargs -i sed -i 's/\"Bypass\")\,2/\"Bypass\")\,0/g' {}
-# 修改DNSFilter排序
-find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-dnsfilter/luasrc/controller/dnsfilter.lua" | xargs -i sed -i 's/\"DNSFilter\")\,0/\"DNSFilter\")\,3/g' {}
-# 修改openclash排序
-find package/*/ feeds/*/ -maxdepth 6 -path "*OpenClash/luci-app-openclash/luasrc/controller/openclash.lua" | xargs -i sed -i 's/\"OpenClash\")\, 50/\"OpenClash\")\, 1/g' {}
-# 修改ShadowSocksR Plus+排序
-find package/*/ feeds/*/ -maxdepth 6 -path "*helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua" | xargs -i sed -i 's/\"ShadowSocksR Plus+\")\, 10/\"ShadowSocksR Plus+\")\, 0/g' {}
-# 修改GodProxy滤广告排序 重命名为:去TMD广告
-find package/*/ feeds/*/ -maxdepth 6 -path "*luci-app-godproxy/luasrc/controller/koolproxy.lua" | xargs -i sed -i 's/\"GodProxy滤广告\")\,1/\"GodProxy滤广告\")\,10/g' {}
-# 修改luci-app-smartdns排序 
-find package/*/ feeds/*/ -maxdepth 6 -path "*luci-app-smartdns/luasrc/controller/smartdns.lua" | xargs -i sed -i 's/\"SmartDNS\")\, 4/\"SmartDNS\")\, 3/g' {}
-# 修改甜糖心愿采集排序 
-find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-ttnode/luasrc/controller/ttnode.lua" | xargs -i sed -i 's/0)\.dependent/50)\.dependent/g' {}
-# 修改bypass支持lean源码重命名shadowsocksr-libev-ssr-redir
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
-# 修改bypass支持lean源码重命名shadowsocksr-libev-ssr-server
-find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
-chmod +x scripts/*.sh
-./scripts/preset-clash-core.sh amd64
-./scripts/preset-terminal-tools.sh
+
+
 
 
