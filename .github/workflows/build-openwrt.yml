@@ -164,6 +164,7 @@ jobs:
     - name: 处理冲突
       run: |
         cd openwrt
+        make defconfig
         source "${PATH1}/common.sh" && Diy_chajian
         make defconfig
         source "${PATH1}/common.sh" && Diy_adgu
@@ -181,7 +182,6 @@ jobs:
       id: package
       run: |
         cd openwrt
-        make defconfig
         make download -j8
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
