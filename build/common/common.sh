@@ -50,7 +50,7 @@ git clone https://github.com/fw876/helloworld package/longcat/luci-app-ssr-plus
 git clone https://github.com/xiaorouji/openwrt-passwall package/longcat/luci-app-passwall
 git clone https://github.com/jerrykuku/luci-app-vssr package/longcat/luci-app-vssr
 git clone https://github.com/jerrykuku/luci-theme-argon package/longcat/luci-theme-argon
-git clone https://github.com/vernesong/OpenClash package/longcat/luci-app-openclash
+git clone https://github.com/vernesong/OpenClash package/longcat/openclash
 git clone https://github.com/frainzy1477/luci-app-clash package/longcat/luci-app-clash
 git clone https://github.com/garypang13/luci-app-bypass package/longcat/luci-app-bypass
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-redir/shadowsocksr-libev-alt/g' {}
