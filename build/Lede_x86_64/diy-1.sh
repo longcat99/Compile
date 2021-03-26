@@ -28,3 +28,11 @@ git clone --depth 1 -b LUCI-LUA-UCITRACK https://github.com/CCnut/feed-netkeeper
 git clone https://github.com/immortalwrt/openwrt-gowebdav
 git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
 git clone https://github.com/jerrykuku/luci-app-argon-config
+git clone https://github.com/garypang13/luci-app-eqos.git
+git clone --depth 1 -b 18.06 https://github.com/riverscn/luci-app-omcproxy.git
+git clone --depth 1 https://github.com/esirplayground/luci-app-LingTiGameAcc
+git clone --depth 1 https://github.com/esirplayground/LingTiGameAcc
+git clone --depth 1 https://github.com/sirpdboy/luci-app-autotimeset
+svn co https://github.com/sirpdboy/netspeedtest/trunk/luci-app-NetSpeedTest
+svn co https://github.com/sirpdboy/netspeedtest/trunk/speedtest
+git clone --depth 1 https://github.com/sirpdboy/luci-theme-opentoks
