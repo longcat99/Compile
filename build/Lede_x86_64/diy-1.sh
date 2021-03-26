@@ -26,3 +26,5 @@ git clone https://github.com/riverscn/openwrt-iptvhelper.git && mv openwrt-iptvh
 svn co https://github.com/Lienol/openwrt/trunk/package/network/fullconenat && rm -f fullconenat/patches/000-printk.patch        
 git clone --depth 1 -b LUCI-LUA-UCITRACK https://github.com/CCnut/feed-netkeeper && mv -n feed-netkeeper/* ./ ; rm -Rf feed-netkeeper
 git clone https://github.com/immortalwrt/openwrt-gowebdav
+git clone --depth 1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config
