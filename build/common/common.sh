@@ -39,7 +39,7 @@ DIY_GET_COMMON_SH
 ################################################################################################################
 Diy_lede() {
 DIY_GET_COMMON_SH
-rm -rf package/lean/{luci-app-netdata,luci-theme-argon,k3screenctrl}
+rm -rf package/lean/{luci-app-netdata,k3screenctrl}
 sed -i 's/iptables -t nat/# iptables -t nat/g' ${TYZZZ}
 if [[ "${Modelfile}" == "Lede_x86_64" ]]; then
 sed -i '/IMAGES_GZIP/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
@@ -49,7 +49,6 @@ fi
 git clone https://github.com/fw876/helloworld package/longcat/luci-app-ssr-plus
 git clone https://github.com/xiaorouji/openwrt-passwall package/longcat/luci-app-passwall
 git clone https://github.com/jerrykuku/luci-app-vssr package/longcat/luci-app-vssr
-git clone https://github.com/jerrykuku/luci-theme-argon package/longcat/luci-theme-argon
 git clone https://github.com/vernesong/OpenClash package/longcat/openclash
 git clone https://github.com/frainzy1477/luci-app-clash package/longcat/luci-app-clash
 git clone https://github.com/garypang13/luci-app-bypass package/longcat/luci-app-bypass
@@ -66,6 +65,7 @@ DIY_GET_COMMON_SH
 cp -Rf "${Home}"/build/common/LEDE/files "${Home}"
 cp -Rf "${Home}"/build/common/LEDE/diy/* "${Home}"
 sed -i '/exit 0/i\echo "*/3 * * * * chmod +x /etc/webweb.sh && source /etc/webweb.sh" >> /etc/crontabs/root' ${TYZZZ}
+sed -i 's/ +luci-theme-argon//g' package/feeds/luci/luci/Makefile
 # 修改luci/luci-app-ddns排序
 find package/*/ feeds/*/ -maxdepth 5 -path "*luci-app-ddns/luasrc/controller/ddns.lua" | xargs -i sed -i 's/\"Dynamic DNS\")\, 59/\"Dynamic DNS\")\, 0/g' {}
 # 修改luci-app-ddns导航菜单位置
@@ -96,6 +96,7 @@ find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-bypass/Makefile" | xargs -
 # 修改bypass支持lean源码重命名shadowsocksr-libev-ssr-server
 find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 }
+
 
 
 ################################################################################################################
