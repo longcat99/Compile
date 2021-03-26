@@ -39,7 +39,7 @@ DIY_GET_COMMON_SH
 ################################################################################################################
 Diy_lede() {
 DIY_GET_COMMON_SH
-rm -rf package/lean/{luci-app-netdata,k3screenctrl}
+rm -rf package/lean/{luci-app-netdata,luci-app-argon,k3screenctrl}
 sed -i 's/iptables -t nat/# iptables -t nat/g' ${TYZZZ}
 if [[ "${Modelfile}" == "Lede_x86_64" ]]; then
 sed -i '/IMAGES_GZIP/d' "${PATH1}/${CONFIG_FILE}" > /dev/null 2>&1
@@ -56,7 +56,7 @@ find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -
 find package/*/ feeds/*/ -maxdepth 2 -path "*luci-app-bypass/Makefile" | xargs -i sed -i 's/shadowsocksr-libev-ssr-server/shadowsocksr-libev-server/g' {}
 chmod +x scripts/*.sh
 ./scripts/preset-clash-core.sh amd64
-./scripts/preset-terminal-tools.sh
+# ./scripts/preset-terminal-tools.sh
 }
 ################################################################################################################
 # LEDE源码通用diy2.sh文件
