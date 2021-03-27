@@ -84,7 +84,7 @@ find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-dnsfilter/luasrc/controlle
 # 修改openclash排序
 find package/*/ feeds/*/ -maxdepth 8 -path "*OpenClash/luci-app-openclash/luasrc/controller/openclash.lua" | xargs -i sed -i 's/\"OpenClash\")\, 50/\"OpenClash\")\, 1/g' {}
 # 修改ShadowSocksR Plus+排序
-find package/*/ feeds/*/ -maxdepth 8 -path "*helloworld/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua" | xargs -i sed -i 's/\"ShadowSocksR Plus+\")\, 10/\"ShadowSocksR Plus+\")\, 0/g' {}
+find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-ssr-plus/luci-app-ssr-plus/luasrc/controller/shadowsocksr.lua" | xargs -i sed -i 's/\"ShadowSocksR Plus+\")\, 10/\"ShadowSocksR Plus+\")\, 0/g' {}
 # 修改GodProxy滤广告排序 重命名为:去TMD广告
 find package/*/ feeds/*/ -maxdepth 8 -path "*luci-app-godproxy/luasrc/controller/koolproxy.lua" | xargs -i sed -i 's/\"GodProxy滤广告\")\,1/\"GodProxy滤广告\")\,10/g' {}
 # 修改luci-app-smartdns排序 
