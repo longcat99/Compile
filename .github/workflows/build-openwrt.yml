@@ -164,7 +164,6 @@ jobs:
     - name: 处理冲突
       run: |
         cd openwrt
-        make defconfig
         source "${PATH1}/common.sh" && Diy_chajian
         make defconfig
         source "${PATH1}/common.sh" && Diy_adgu
