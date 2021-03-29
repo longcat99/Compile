@@ -31,6 +31,10 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    steps:
+    - name: 检查项目分支
+      uses: actions/checkout@main
     if: github.event.repository.owner.id == github.event.sender.id
 
     name: 编译 "${{matrix.target}}"
