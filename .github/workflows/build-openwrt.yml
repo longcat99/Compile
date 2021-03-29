@@ -41,7 +41,7 @@ jobs:
         # target: [Project_x86_64,Lede_x86_64,Lienol_x86_64]
     steps:
     - name: 准备结束
-      uses: actions/checkout@@v2
+      uses: actions/checkout@v2
     
     - name: 读取配置
       run: |
