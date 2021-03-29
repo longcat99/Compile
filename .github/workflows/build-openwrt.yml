@@ -31,10 +31,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    steps:
-    - name: 检查项目分支
-      uses: actions/checkout@main
     if: github.event.repository.owner.id == github.event.sender.id
 
     name: 编译 "${{matrix.target}}"
@@ -44,8 +40,8 @@ jobs:
         target: [Lede_x86_64]
         # target: [Project_x86_64,Lede_x86_64,Lienol_x86_64]
     steps:
-    - name: 准备结束
-      uses: actions/checkout@v2
+    - name: 检查项目分支
+      uses: actions/checkout@main
     
     - name: 读取配置
       run: |
